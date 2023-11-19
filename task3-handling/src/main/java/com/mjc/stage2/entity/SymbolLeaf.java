@@ -1,8 +1,35 @@
 package com.mjc.stage2.entity;
 
-public class SymbolLeaf {
+import java.util.Objects;
 
-    private char value;
+public class SymbolLeaf extends AbstractTextComponent{
 
     // Write your code here!
+    private char value;
+
+    public SymbolLeaf(TextComponentType textComponentType, char value){
+        super(textComponentType);
+        this.value = value;
+    }
+
+    @Override
+    public String operation() {
+        return String.valueOf(value);
+    }
+
+    @Override
+    public void add(AbstractTextComponent textComponent) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void remove(AbstractTextComponent textComponent) {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public int getSize() {
+        return Objects.nonNull(Character.valueOf(value))  ? 1 : 0;
+    }
+
 }
